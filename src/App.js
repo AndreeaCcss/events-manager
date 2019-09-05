@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import store from "./store";
+import { Provider } from "react-redux";
+import { Route } from "react-router-dom";
+import EventsListContainer from "./components/EventsListContainer";
+import CreateEventsFormContainer from "./components/createEventFormContainer";
+import EventDetailsContainer from "./components/EventDetailsContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div>
+          <Route path="/" exact component={EventsListContainer} />
+          <Route path="/" exact component={CreateEventsFormContainer} />
+          <Route path="/events/:id" component={EventDetailsContainer} />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
