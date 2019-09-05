@@ -2,7 +2,6 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 export default function EventsList(props) {
-  console.log(props.events);
   return (
     <div>
       <h1>All Events</h1>
