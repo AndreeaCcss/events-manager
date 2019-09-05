@@ -2,7 +2,7 @@ import request from "superagent";
 
 export const EVENTS_FETCHED = "EVENTS_FETCHED";
 
-const baseUrl = "http://localhost:4000";
+const baseUrl = process.env.BASE_URL;
 
 const eventsFetched = events => ({
   type: EVENTS_FETCHED,
